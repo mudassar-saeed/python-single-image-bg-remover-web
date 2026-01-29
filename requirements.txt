@@ -1,0 +1,4 @@
+Flask==3.0.0
+rembg==2.0.58
+Pillow==10.2.0
+werkzeug==3.0.1

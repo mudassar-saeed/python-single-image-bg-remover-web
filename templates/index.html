@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Background Remover</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="grain-overlay"></div>
+    
+    <div class="container">
+        <header class="header">
+            <h1 class="title">Image Background Remover</h1>
+            <div class="title-accent"></div>
+        </header>
+
+        <main class="main-content">
+            <div class="panels-wrapper">
+                <!-- Upload Panel -->
+                <div class="panel upload-panel">
+                    <div class="panel-header">
+                        <h2 class="panel-title">Upload</h2>
+                    </div>
+                    <div class="upload-zone" id="uploadZone">
+                        <input type="file" id="fileInput" accept="image/*" hidden>
+                        <div class="upload-content" id="uploadContent">
+                            <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <p class="upload-text">Upload or drag/drop image</p>
+                            <p class="upload-hint">PNG, JPG, WEBP up to 16MB</p>
+                        </div>
+                        <img id="previewImage" class="preview-image" style="display: none;">
+                    </div>
+                    <button class="action-btn" id="removeBtn" disabled>
+                        <span class="btn-text">Remove BG</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                </div>
+
+                <!-- Result Panel -->
+                <div class="panel result-panel">
+                    <div class="panel-header">
+                        <h2 class="panel-title">Result</h2>
+                    </div>
+                    <div class="result-zone" id="resultZone">
+                        <div class="result-placeholder" id="resultPlaceholder">
+                            <svg class="result-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                <polyline points="21 15 16 10 5 21"></polyline>
+                            </svg>
+                            <p class="result-text">Result image</p>
+                        </div>
+                        <img id="resultImage" class="result-image" style="display: none;">
+                        <div class="loader" id="loader" style="display: none;">
+                            <div class="loader-spinner"></div>
+                            <p>Processing...</p>
+                        </div>
+                    </div>
+                    <button class="action-btn download-btn" id="downloadBtn" disabled>
+                        <span class="btn-text">Download PNG</span>
+                        <span class="btn-arrow">↓</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Built by <strong><a id="linkedin-url" href="https://www.linkedin.com/in/muhammad-mudassar-saeed/" target="_blank">Muhammad Mudassar Saeed</a></strong></p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
